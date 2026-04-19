@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avanza Vantage Consulting Group</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Estilos base para ocultar secciones no activas */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0A1128] font-sans selection:bg-[#D4AF37] selection:text-[#0A1128] text-white">
+
+  <!-- Navegación -->
+  <nav class="sticky top-0 z-50 w-full bg-[#0A1128]/90 backdrop-blur-md border-b border-[#1E2B4D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <div class="flex items-center cursor-pointer" onclick="handleNavClick('inicio')">
+          <div class="flex flex-col">
+            <div class="flex items-center text-2xl tracking-tighter">
+              <span class="font-semibold text-blue-500">AVANZA</span>
+              <span class="font-bold text-[#D4AF37] ml-1">VANTAGE</span>
+              <i data-lucide="trending-up" class="w-6 h-6 text-[#D4AF37] -mt-4 -ml-1 stroke-[3]"></i>
+            </div>
+            <span class="text-[0.6rem] tracking-[0.2em] text-slate-400 uppercase font-semibold">Consulting Group</span>
+          </div>
+        </div>
+
+        <!-- Menú Escritorio -->
+        <div class="hidden md:flex space-x-6 lg:space-x-8" id="desktop-menu">
+          <button onclick="handleNavClick('inicio')" data-tab="inicio" class="desktop-nav text-sm font-medium transition-colors duration-300 text-[#D4AF37] border-b-2 border-[#D4AF37] pb-1">Inicio</button>
+          <button onclick="handleNavClick('servicios')" data-tab="servicios" class="desktop-nav text-sm font-medium transition-colors duration-300 hover:text-[#D4AF37] text-slate-400">Servicios</button>
+          <button onclick="handleNavClick('trabajos')" data-tab="trabajos" class="desktop-nav text-sm font-medium transition-colors duration-300 hover:text-[#D4AF37] text-slate-400">Portafolio</button>
+          <button onclick="handleNavClick('metricas')" data-tab="metricas" class="desktop-nav text-sm font-medium transition-colors duration-300 hover:text-[#D4AF37] text-slate-400">Métricas</button>
+          <button onclick="handleNavClick('contacto')" data-tab="contacto" class="desktop-nav text-sm font-medium transition-colors duration-300 hover:text-[#D4AF37] text-slate-400">Contacto</button>
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="md:hidden flex items-center">
+          <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-[#D4AF37] focus:outline-none" id="menu-btn-icon">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#141E3A] border-b border-[#1E2B4D]">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <button onclick="handleNavClick('inicio')" data-tab="inicio" class="mobile-nav block w-full text-left px-3 py-4 text-base font-medium rounded-md text-[#D4AF37] bg-[#1E2B4D]/50">Inicio</button>
+        <button onclick="handleNavClick('servicios')" data-tab="servicios" class="mobile-nav block w-full text-left px-3 py-4 text-base font-medium rounded-md text-slate-300 hover:text-[#D4AF37] hover:bg-[#1E2B4D]/30">Servicios</button>
+        <button onclick="handleNavClick('trabajos')" data-tab="trabajos" class="mobile-nav block w-full text-left px-3 py-4 text-base font-medium rounded-md text-slate-300 hover:text-[#D4AF37] hover:bg-[#1E2B4D]/30">Portafolio</button>
+        <button onclick="handleNavClick('metricas')" data-tab="metricas" class="mobile-nav block w-full text-left px-3 py-4 text-base font-medium rounded-md text-slate-300 hover:text-[#D4AF37] hover:bg-[#1E2B4D]/30">Métricas</button>
+        <button onclick="handleNavClick('contacto')" data-tab="contacto" class="mobile-nav block w-full text-left px-3 py-4 text-base font-medium rounded-md text-slate-300 hover:text-[#D4AF37] hover:bg-[#1E2B4D]/30">Contacto</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main>
+    
+    <!-- VISTA: INICIO -->
+    <section id="inicio" class="tab-content active animate-fade-in">
+      <!-- Hero Section -->
+      <div class="relative overflow-hidden bg-[#0A1128] py-24 lg:py-32">
+        <div class="absolute inset-0 z-0">
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0A1128] via-[#141E3A]/90 to-transparent z-10"></div>
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Business Lifestyle" class="w-full h-full object-cover opacity-20">
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <div class="inline-block px-3 py-1 mb-6 border border-[#D4AF37]/30 bg-[#D4AF37]/10 rounded-full text-[#D4AF37] text-sm font-semibold tracking-wide">
+              Consultoría Estratégica y Producción Digital de Alto Nivel
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+              Transformando potencial en <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-yellow-200">Autoridad de Mercado</span>
+            </h1>
+            <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
+              <strong class="text-white font-semibold">La ventaja es ser diferente.</strong> Fusionamos ingeniería comercial, psicología de ventas y producción audiovisual para construir marcas que lideran tu sector. Deja de competir por precio y empieza a liderar por autoridad.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button onclick="handleNavClick('contacto')" class="px-8 py-4 bg-[#D4AF37] hover:bg-yellow-600 text-[#0A1128] font-bold rounded-sm transition-all flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                Solicitar Asesoría Estratégica <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Por qué elegirnos -->
+      <div class="py-24 bg-[#141E3A]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2">
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Nuestra Diferencia</h2>
+              <div class="w-24 h-1 bg-[#D4AF37] mb-8"></div>
+              <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                No somos una agencia creativa más; somos <strong class="text-white">Avanza Vantage Consulting Group</strong>. 
+                Mientras otros se enfocan solo en likes y tendencias pasajeras, nosotros nos enfocamos en tu <span class="text-[#D4AF37] font-semibold">rentabilidad y autoridad</span>.
+              </p>
+              
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-[#D4AF37] mr-4 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 class="text-white font-bold text-lg">Visión de Ingenieros, no solo de Diseñadores</h4>
+                    <p class="text-slate-400">Estrategia basada en datos y planes de negocio sólidos.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-[#D4AF37] mr-4 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 class="text-white font-bold text-lg">Psicología de Ventas</h4>
+                    <p class="text-slate-400">Diseñamos mensajes para conectar emocionalmente con tu cliente ideal.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-[#D4AF37] mr-4 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 class="text-white font-bold text-lg">Calidad Intransigente</h4>
+                    <p class="text-slate-400">Estándares visuales y de producción superiores al promedio del mercado.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-[#D4AF37] mr-4 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h4 class="text-white font-bold text-lg">Resultados Medibles</h4>
+                    <p class="text-slate-400">Crecimiento real en tu facturación, dejando atrás las métricas de vanidad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="lg:w-1/2 relative">
+              <div class="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent rounded-sm transform translate-x-4 translate-y-4"></div>
+              <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1974&auto=format&fit=crop" alt="Consultoría Estratégica" class="relative z-10 rounded-sm border border-[#1E2B4D] shadow-2xl">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proceso de Trabajo -->
+      <div class="py-24 bg-[#0A1128]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Proceso de Trabajo</h2>
+            <div class="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="relative bg-[#141E3A] p-8 border border-[#1E2B4D] hover:border-[#D4AF37] transition-all group rounded-sm">
+              <div class="absolute -top-6 -right-6 text-7xl font-black text-[#1E2B4D]/30 group-hover:text-[#D4AF37]/10 transition-colors z-0">01</div>
+              <div class="relative z-10">
+                <div class="text-[#D4AF37] mb-6"><i data-lucide="compass" class="w-8 h-8"></i></div>
+                <h3 class="text-xl font-bold text-white">Diagnóstico</h3>
+                <p class="text-sm font-semibold text-[#D4AF37] mb-4">(Vantage Point)</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Analizamos tu situación actual y encontramos tu ventaja competitiva única.</p>
+              </div>
+            </div>
+            
+            <div class="relative bg-[#141E3A] p-8 border border-[#1E2B4D] hover:border-[#D4AF37] transition-all group rounded-sm">
+              <div class="absolute -top-6 -right-6 text-7xl font-black text-[#1E2B4D]/30 group-hover:text-[#D4AF37]/10 transition-colors z-0">02</div>
+              <div class="relative z-10">
+                <div class="text-[#D4AF37] mb-6"><i data-lucide="target" class="w-8 h-8"></i></div>
+                <h3 class="text-xl font-bold text-white">Estrategia</h3>
+                <p class="text-sm font-semibold text-[#D4AF37] mb-4">(El Plan)</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Diseñamos el camino a seguir, definiendo el mensaje exacto y los canales adecuados.</p>
+              </div>
+            </div>
+
+            <div class="relative bg-[#141E3A] p-8 border border-[#1E2B4D] hover:border-[#D4AF37] transition-all group rounded-sm">
+              <div class="absolute -top-6 -right-6 text-7xl font-black text-[#1E2B4D]/30 group-hover:text-[#D4AF37]/10 transition-colors z-0">03</div>
+              <div class="relative z-10">
+                <div class="text-[#D4AF37] mb-6"><i data-lucide="film" class="w-8 h-8"></i></div>
+                <h3 class="text-xl font-bold text-white">Producción</h3>
+                <p class="text-sm font-semibold text-[#D4AF37] mb-4">(La Acción)</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Ejecutamos la creación de contenido audiovisual con los más altos estándares.</p>
+              </div>
+            </div>
+
+            <div class="relative bg-[#141E3A] p-8 border border-[#1E2B4D] hover:border-[#D4AF37] transition-all group rounded-sm">
+              <div class="absolute -top-6 -right-6 text-7xl font-black text-[#1E2B4D]/30 group-hover:text-[#D4AF37]/10 transition-colors z-0">04</div>
+              <div class="relative z-10">
+                <div class="text-[#D4AF37] mb-6"><i data-lucide="line-chart" class="w-8 h-8"></i></div>
+                <h3 class="text-xl font-bold text-white">Medición</h3>
+                <p class="text-sm font-semibold text-[#D4AF37] mb-4">(El Resultado)</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Analizamos métricas comerciales y optimizamos constantemente para crecer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISTA: SERVICIOS -->
+    <section id="servicios" class="tab-content animate-fade-in bg-[#0A1128] min-h-screen pt-10 pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Nuestros Servicios</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">
+            Soluciones integrales diseñadas para profesionales y empresas que buscan liderar su sector mediante autoridad visual y estratégica.
+          </p>
+          <div class="w-24 h-1 bg-[#D4AF37] mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div class="bg-[#141E3A] border border-[#1E2B4D] hover:border-[#D4AF37] transition-all duration-300 p-8 rounded-sm flex flex-col">
+            <div class="mb-6 bg-[#0A1128] p-4 inline-block rounded-sm border border-[#1E2B4D]">
+              <i data-lucide="briefcase" class="w-10 h-10 text-[#D4AF37]"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">Identidad & Estrategia</h3>
+            <p class="text-[#D4AF37] text-sm font-semibold mb-6 tracking-wide uppercase">Consultoría Avanzada</p>
+            <p class="text-slate-400 mb-8 flex-grow leading-relaxed">No disparamos sin apuntar. Definimos tu ADN de marca, análisis de mercado, cliente ideal y la hoja de ruta comercial para diferenciarte de la competencia.</p>
+            
+            <div class="border-t border-[#1E2B4D] pt-6 mt-auto">
+              <p class="text-white font-semibold mb-4 text-sm">¿Qué incluye?</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Diagnóstico comercial integral</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Manual de Identidad de Marca</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Plan de Contenidos Estratégico</span>
+                </li>
+              </ul>
+            </div>
+            <button onclick="handleNavClick('contacto')" class="mt-8 w-full py-3 bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A1128] font-bold rounded-sm transition-colors">
+              Cotizar Paquete
+            </button>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div class="bg-[#141E3A] border border-[#1E2B4D] hover:border-[#D4AF37] transition-all duration-300 p-8 rounded-sm flex flex-col">
+            <div class="mb-6 bg-[#0A1128] p-4 inline-block rounded-sm border border-[#1E2B4D]">
+              <i data-lucide="video" class="w-10 h-10 text-[#D4AF37]"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">Producción Vantage</h3>
+            <p class="text-[#D4AF37] text-sm font-semibold mb-6 tracking-wide uppercase">Audiovisual Cinematográfico</p>
+            <p class="text-slate-400 mb-8 flex-grow leading-relaxed">Contenido visual intransigente. Elevamos tu percepción de valor con videos y fotografías de estándar cinematográfico diseñados para retener la atención.</p>
+            
+            <div class="border-t border-[#1E2B4D] pt-6 mt-auto">
+              <p class="text-white font-semibold mb-4 text-sm">¿Qué incluye?</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Reels estratégicos de alta retención</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Fotografía corporativa de lujo</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Edición de alto impacto visual</span>
+                </li>
+              </ul>
+            </div>
+            <button onclick="handleNavClick('contacto')" class="mt-8 w-full py-3 bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A1128] font-bold rounded-sm transition-colors">
+              Cotizar Paquete
+            </button>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div class="bg-[#141E3A] border border-[#1E2B4D] hover:border-[#D4AF37] transition-all duration-300 p-8 rounded-sm flex flex-col">
+            <div class="mb-6 bg-[#0A1128] p-4 inline-block rounded-sm border border-[#1E2B4D]">
+              <i data-lucide="trending-up" class="w-10 h-10 text-[#D4AF37]"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">Gestión de Crecimiento</h3>
+            <p class="text-[#D4AF37] text-sm font-semibold mb-6 tracking-wide uppercase">Tu Growth Partner</p>
+            <p class="text-slate-400 mb-8 flex-grow leading-relaxed">Actuamos como tu departamento de marketing externo. Nos encargamos de la ejecución diaria para que tú te enfoques exclusivamente en escalar tu negocio.</p>
+            
+            <div class="border-t border-[#1E2B4D] pt-6 mt-auto">
+              <p class="text-white font-semibold mb-4 text-sm">¿Qué incluye?</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Gestión total de redes sociales</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Publicación e interacción con comunidad</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-300">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#D4AF37] mr-2 flex-shrink-0 mt-0.5"></i>
+                  <span>Reporte de resultados medibles y ROI</span>
+                </li>
+              </ul>
+            </div>
+            <button onclick="handleNavClick('contacto')" class="mt-8 w-full py-3 bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A1128] font-bold rounded-sm transition-colors">
+              Cotizar Paquete
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISTA: TRABAJOS (PORTAFOLIO) -->
+    <section id="trabajos" class="tab-content animate-fade-in bg-[#0A1128] min-h-screen pt-10 pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Nuestro Portafolio</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">
+            Evidencia visual de nuestra metodología. Transformamos negocios tradicionales y marcas personales en líderes indiscutibles de su categoría.
+          </p>
+          <div class="w-24 h-1 bg-[#D4AF37] mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          
+          <!-- Caso de Éxito: Pizzería Amore -->
+          <div class="group relative overflow-hidden rounded-sm border border-[#1E2B4D] hover:border-[#D4AF37] transition-all bg-[#141E3A] md:col-span-2 lg:col-span-1">
+            <div class="h-64 overflow-hidden relative">
+              <div class="absolute inset-0 bg-[#0A1128]/60 group-hover:bg-[#0A1128]/20 transition-all z-10"></div>
+              <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=2070&auto=format&fit=crop" alt="Pizzería Amore Branding" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 z-20 bg-[#0A1128]/90 backdrop-blur px-3 py-1 text-xs font-semibold tracking-wider text-[#D4AF37] uppercase border border-[#1E2B4D]">
+                Caso de Éxito
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center mb-4 text-[#D4AF37]">
+                <i data-lucide="pizza" class="w-6 h-6 mr-3"></i>
+                <h3 class="text-2xl font-bold text-white">Pizzería Amore</h3>
+              </div>
+              <p class="text-sm text-[#D4AF37] font-semibold mb-4">Video de Lanzamiento & Branding</p>
+              <p class="text-slate-400 mb-6">
+                Estrategia de posicionamiento de marca enfocada en la calidad artesanal y la experiencia de usuario. 
+                El contenido visual elevó drásticamente la percepción de valor del restaurante, atrayendo a un público dispuesto a pagar por calidad.
+              </p>
+              <button class="flex items-center text-sm font-bold text-[#D4AF37] hover:text-white transition-colors">
+                <i data-lucide="play-circle" class="w-4 h-4 mr-2"></i> Ver Manifiesto Audiovisual
+              </button>
+            </div>
+          </div>
+
+          <!-- Bienes Raíces -->
+          <div class="group relative overflow-hidden rounded-sm border border-[#1E2B4D] hover:border-[#D4AF37] transition-all bg-[#141E3A]">
+            <div class="h-64 overflow-hidden relative">
+              <div class="absolute inset-0 bg-[#0A1128]/60 group-hover:bg-[#0A1128]/20 transition-all z-10"></div>
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Bienes Raíces" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 z-20 bg-[#0A1128]/90 backdrop-blur px-3 py-1 text-xs font-semibold tracking-wider text-[#D4AF37] uppercase border border-[#1E2B4D]">
+                Sector Inmobiliario
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center mb-4 text-[#D4AF37]">
+                <i data-lucide="building-2" class="w-6 h-6 mr-3"></i>
+                <h3 class="text-2xl font-bold text-white">Casas y Propiedades</h3>
+              </div>
+              <p class="text-sm text-[#D4AF37] font-semibold mb-4">Estrategia de Ventas High-Ticket</p>
+              <p class="text-slate-400 mb-6">
+                Recorridos inmersivos en video que destacan el lujo y los detalles arquitectónicos. 
+                Generamos leads calificados listos para agendar visitas a propiedades de alto valor, acortando el ciclo de ventas.
+              </p>
+              <button class="flex items-center text-sm font-bold text-[#D4AF37] hover:text-white transition-colors">
+                <i data-lucide="play-circle" class="w-4 h-4 mr-2"></i> Ver Ejemplos Inmobiliarios
+              </button>
+            </div>
+          </div>
+
+          <!-- Profesionales -->
+          <div class="group relative overflow-hidden rounded-sm border border-[#1E2B4D] hover:border-[#D4AF37] transition-all bg-[#141E3A] md:col-span-2 lg:col-span-1">
+            <div class="h-64 overflow-hidden relative">
+              <div class="absolute inset-0 bg-[#0A1128]/60 group-hover:bg-[#0A1128]/20 transition-all z-10"></div>
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2064&auto=format&fit=crop" alt="Profesionales" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute top-4 left-4 z-20 bg-[#0A1128]/90 backdrop-blur px-3 py-1 text-xs font-semibold tracking-wider text-[#D4AF37] uppercase border border-[#1E2B4D]">
+                Marca Personal
+              </div>
+            </div>
+            <div class="p-8">
+              <div class="flex items-center mb-4 text-[#D4AF37]">
+                <i data-lucide="briefcase" class="w-6 h-6 mr-3"></i>
+                <h3 class="text-2xl font-bold text-white">Profesionales y Consultores</h3>
+              </div>
+              <p class="text-sm text-[#D4AF37] font-semibold mb-4">Posicionamiento de Autoridad</p>
+              <p class="text-slate-400 mb-6">
+                Posicionamos a médicos, abogados, asesores financieros y coaches como la autoridad #1 en su nicho a través de contenido educativo estratégico, diseñado para cerrar ventas de servicios premium.
+              </p>
+              <button class="flex items-center text-sm font-bold text-[#D4AF37] hover:text-white transition-colors">
+                <i data-lucide="play-circle" class="w-4 h-4 mr-2"></i> Ver Contenido Educativo
+              </button>
+            </div>
+          </div>
+          
+           <!-- CTA Banner -->
+           <div class="md:col-span-2 border border-[#1E2B4D] p-12 text-center rounded-sm bg-gradient-to-br from-[#141E3A] to-[#0A1128]">
+            <h3 class="text-2xl font-bold text-white mb-2">¿Listo para diferenciarte de tu competencia?</h3>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Sea cual sea tu nicho, si ofreces un servicio o producto de alto valor, podemos diseñar un embudo audiovisual que conecte con tu cliente ideal.</p>
+            <button onclick="handleNavClick('contacto')" class="px-8 py-4 bg-[#D4AF37] hover:bg-yellow-600 text-[#0A1128] font-bold rounded-sm transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+              Hablemos de tu Estrategia
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISTA: METRICAS -->
+    <section id="metricas" class="tab-content animate-fade-in bg-[#0A1128] min-h-screen pt-10 pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+          <div class="md:w-1/2">
+            <h2 class="text-4xl font-bold mb-4">Decisiones Basadas en Datos</h2>
+            <p class="text-slate-400 text-lg">
+              La creatividad atrae la atención, pero las métricas de negocio cierran ventas. 
+              En Avanza Vantage analizamos cada interacción para garantizar y optimizar tu Retorno de Inversión (ROI).
+            </p>
+            <div class="w-24 h-1 bg-[#D4AF37] mt-6"></div>
+          </div>
+          <div class="md:w-1/2">
+            <div class="bg-[#141E3A] border border-[#1E2B4D] p-6 rounded-sm relative overflow-hidden">
+               <div class="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/5 rounded-bl-full"></div>
+               <i data-lucide="bar-chart-3" class="w-12 h-12 text-[#D4AF37] mb-4"></i>
+               <h3 class="text-xl font-bold mb-2">Nuestro Enfoque Analítico</h3>
+               <p class="text-sm text-slate-400">Dejamos de lado las métricas de vanidad (solo likes o seguidores vacíos) para enfocarnos estrictamente en KPIs que impactan tu facturación y crecimiento real.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Simulation -->
+        <div class="bg-[#141E3A] border border-[#1E2B4D] rounded-sm p-8 shadow-2xl relative overflow-hidden">
+          <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#1E2B4D]/20 rounded-full blur-3xl"></div>
+          
+          <div class="flex items-center justify-between border-b border-[#1E2B4D] pb-6 mb-8 relative z-10">
+            <div>
+              <h3 class="text-xl font-bold">Panel de Rendimiento Vantage</h3>
+              <p class="text-sm text-slate-500">Métricas comerciales clave que rastreamos</p>
+            </div>
+            <span class="px-3 py-1 bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold rounded border border-[#D4AF37]/20 uppercase tracking-wider">
+              Orientado a Ventas
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 relative z-10">
+            
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D] rounded-sm">
+              <p class="text-sm text-slate-400 mb-1 font-medium">Tasa de Retención (3s)</p>
+              <div class="flex items-end justify-between mb-2">
+                <p class="text-3xl font-bold text-white">68%</p>
+                <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">+12%</span>
+              </div>
+              <p class="text-xs text-slate-500">Efectividad del gancho</p>
+            </div>
+
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D] rounded-sm">
+              <p class="text-sm text-slate-400 mb-1 font-medium">Costo por Adquisición</p>
+              <div class="flex items-end justify-between mb-2">
+                <p class="text-3xl font-bold text-white">$12.50</p>
+                <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">-15%</span>
+              </div>
+              <p class="text-xs text-slate-500">Tráfico altamente calificado</p>
+            </div>
+
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D] rounded-sm">
+              <p class="text-sm text-slate-400 mb-1 font-medium">Conversión de Embudo</p>
+              <div class="flex items-end justify-between mb-2">
+                <p class="text-3xl font-bold text-white">4.2%</p>
+                <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">+1.1%</span>
+              </div>
+              <p class="text-xs text-slate-500">A citas/llamadas cerradas</p>
+            </div>
+
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D] rounded-sm">
+              <p class="text-sm text-slate-400 mb-1 font-medium">Vistas Cualificadas</p>
+              <div class="flex items-end justify-between mb-2">
+                <p class="text-3xl font-bold text-white">2.4M</p>
+                <span class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded">+45%</span>
+              </div>
+              <p class="text-xs text-slate-500">Alcance en target específico</p>
+            </div>
+
+          </div>
+
+          <!-- Detailed analysis sections -->
+          <div class="grid md:grid-cols-2 gap-8 relative z-10">
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D]">
+              <div class="flex items-center mb-4">
+                <i data-lucide="users" class="w-5 h-5 text-[#D4AF37] mr-3"></i>
+                <h4 class="font-bold text-lg">Psicología de Audiencia</h4>
+              </div>
+              <ul class="space-y-3 text-sm text-slate-400">
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> Identificación de Ballenas (clientes de alto poder adquisitivo).</li>
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> Segmentación basada en puntos de dolor y deseos.</li>
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> Análisis de comportamiento de visualizadores clave.</li>
+              </ul>
+            </div>
+            <div class="bg-[#0A1128] p-6 border border-[#1E2B4D]">
+              <div class="flex items-center mb-4">
+                <i data-lucide="zap" class="w-5 h-5 text-[#D4AF37] mr-3"></i>
+                <h4 class="font-bold text-lg">Optimización de Conversión</h4>
+              </div>
+              <ul class="space-y-3 text-sm text-slate-400">
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> Ingeniería de embudos desde el video hasta el cierre.</li>
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> A/B Testing continuo de llamadas a la acción (CTAs).</li>
+                <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-[#D4AF37]"></i> Seguimiento preciso del origen de tus clientes de alto valor.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VISTA: CONTACTO -->
+    <section id="contacto" class="tab-content animate-fade-in bg-[#0A1128] min-h-screen pt-10 pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">Inicia tu Evolución</h2>
+          <p class="text-slate-400 max-w-2xl mx-auto">
+            ¿Listo para diferenciarte? Trabajamos con un grupo selecto de marcas para asegurar resultados extraordinarios. 
+            Déjanos tus datos y evaluaremos si hacemos un buen equipo estratégico.
+          </p>
+          <div class="w-24 h-1 bg-[#D4AF37] mx-auto mt-6"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+          <!-- Info de contacto -->
+          <div class="lg:col-span-1 space-y-8">
+            <div class="bg-[#141E3A] p-8 border border-[#1E2B4D] rounded-sm">
+              <h3 class="text-2xl font-bold mb-6 text-white border-b border-[#1E2B4D] pb-4">Nuestras Oficinas</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="bg-[#0A1128] p-3 rounded-sm border border-[#1E2B4D] mr-4">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-[#D4AF37]"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Ubicación Central</p>
+                    <p class="text-base text-white leading-snug">
+                      Barrio Policial, Av. 9no anillo Nro. 340<br>
+                      <span class="text-slate-500 text-sm">(Ref: Sobre 9no anillo media cuadra antes de Av. Banzer)</span><br>
+                      Santa Cruz de la Sierra, Bolivia
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="bg-[#0A1128] p-3 rounded-sm border border-[#1E2B4D] mr-4">
+                    <i data-lucide="mail" class="w-5 h-5 text-[#D4AF37]"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Email Corporativo</p>
+                    <p class="text-base text-white">elite@avanzavantage.com</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="bg-[#0A1128] p-3 rounded-sm border border-[#1E2B4D] mr-4">
+                    <i data-lucide="phone" class="w-5 h-5 text-[#D4AF37]"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-slate-400 font-medium mb-1">Línea Estratégica (WhatsApp)</p>
+                    <p class="text-base text-white">Disponible Próximamente</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario -->
+          <div class="lg:col-span-2">
+            <form class="bg-[#141E3A] p-8 md:p-10 border border-[#1E2B4D] rounded-sm" onsubmit="event.preventDefault()">
+              <h3 class="text-2xl font-bold mb-8 text-white">Solicitud de Consultoría</h3>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-400 mb-2">Nombre Completo</label>
+                  <input type="text" class="w-full bg-[#0A1128] border border-[#1E2B4D] rounded-sm px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="Ej. Juan Pérez">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-400 mb-2">Email Profesional</label>
+                  <input type="email" class="w-full bg-[#0A1128] border border-[#1E2B4D] rounded-sm px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="juan@empresa.com">
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-400 mb-2">Empresa / Profesión</label>
+                  <input type="text" class="w-full bg-[#0A1128] border border-[#1E2B4D] rounded-sm px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="Ej. Bienes Raíces, Médico Especialista...">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-slate-400 mb-2">Facturación Mensual Aprox.</label>
+                  <select class="w-full bg-[#0A1128] border border-[#1E2B4D] rounded-sm px-4 py-3 text-slate-300 focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                    <option>Menos de $5k USD</option>
+                    <option>$5k - $20k USD</option>
+                    <option>$20k - $50k USD</option>
+                    <option>Más de $50k USD</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <label class="block text-sm font-medium text-slate-400 mb-2">¿Cuál es tu objetivo principal a nivel de negocio?</label>
+                <textarea rows="4" class="w-full bg-[#0A1128] border border-[#1E2B4D] rounded-sm px-4 py-3 text-white focus:outline-none focus:border-[#D4AF37] transition-colors resize-none" placeholder="Cuéntanos sobre tus metas, quién es tu cliente ideal y por qué buscas diferenciarte..."></textarea>
+              </div>
+
+              <button class="w-full bg-[#D4AF37] hover:bg-yellow-600 text-[#0A1128] font-bold text-lg py-4 rounded-sm transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)]">
+                Hablemos de tu Estrategia
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#050814] border-t border-[#1E2B4D] py-12 text-center md:text-left">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <div>
+           <div class="flex items-center justify-center md:justify-start text-xl tracking-tighter mb-4">
+              <span class="font-semibold text-blue-500">AVANZA</span>
+              <span class="font-bold text-[#D4AF37] ml-1">VANTAGE</span>
+           </div>
+           <p class="text-slate-500 text-sm">Transformando la atención digital en activos rentables y marcas de autoridad.</p>
+        </div>
+        <div class="flex justify-center space-x-6 text-slate-400">
+           <button onclick="handleNavClick('inicio')" class="hover:text-[#D4AF37] text-sm transition-colors">Inicio</button>
+           <button onclick="handleNavClick('servicios')" class="hover:text-[#D4AF37] text-sm transition-colors">Servicios</button>
+           <button onclick="handleNavClick('contacto')" class="hover:text-[#D4AF37] text-sm transition-colors">Contacto</button>
+        </div>
+        <div class="text-slate-500 text-sm md:text-right" id="footer-year">
+          &copy; 2026 Avanza Vantage Consulting Group.<br>Todos los derechos reservados.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica en JavaScript puro (Reemplazo del estado de React) -->
+  <script>
+    // Inicializar íconos de Lucide
+    lucide.createIcons();
+
+    // Actualizar el año en el footer dinámicamente
+    document.getElementById('footer-year').innerHTML = `&copy; ${new Date().getFullYear()} Avanza Vantage Consulting Group.<br>Todos los derechos reservados.`;
+
+    // Lista de todas las pestañas
+    const tabs = ['inicio', 'servicios', 'trabajos', 'metricas', 'contacto'];
+    let isMenuOpen = false;
+
+    function handleNavClick(tabId) {
+      // 1. Ocultar todas las secciones y mostrar la elegida
+      tabs.forEach(t => {
+        document.getElementById(t).classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+
+      // 2. Actualizar estilos del menú de escritorio
+      document.querySelectorAll('.desktop-nav').forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+          btn.classList.add('text-[#D4AF37]', 'border-b-2', 'border-[#D4AF37]', 'pb-1');
+          btn.classList.remove('text-slate-400', 'hover:text-[#D4AF37]');
+        } else {
+          btn.classList.remove('text-[#D4AF37]', 'border-b-2', 'border-[#D4AF37]', 'pb-1');
+          btn.classList.add('text-slate-400', 'hover:text-[#D4AF37]');
+        }
+      });
+
+      // 3. Actualizar estilos del menú móvil
+      document.querySelectorAll('.mobile-nav').forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+          btn.classList.add('text-[#D4AF37]', 'bg-[#1E2B4D]/50');
+          btn.classList.remove('text-slate-300', 'hover:bg-[#1E2B4D]/30');
+        } else {
+          btn.classList.remove('text-[#D4AF37]', 'bg-[#1E2B4D]/50');
+          btn.classList.add('text-slate-300', 'hover:bg-[#1E2B4D]/30');
+        }
+      });
+
+      // 4. Cerrar menú móvil si estaba abierto
+      isMenuOpen = false;
+      document.getElementById('mobile-menu').classList.add('hidden');
+      updateMenuIcon();
+
+      // 5. Scroll suave hacia arriba
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Funcionalidad para abrir/cerrar menú en dispositivos móviles
+    function toggleMobileMenu() {
+      isMenuOpen = !isMenuOpen;
+      const menu = document.getElementById('mobile-menu');
+      if (isMenuOpen) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+      updateMenuIcon();
+    }
+
+    // Cambiar ícono de Hamburguesa a "X"
+    function updateMenuIcon() {
+      const btn = document.getElementById('menu-btn-icon');
+      if (isMenuOpen) {
+        btn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+      } else {
+        btn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+      }
+      lucide.createIcons(); // Recargar el ícono insertado dinámicamente
+    }
+  </script>
+</body>
+</html>
